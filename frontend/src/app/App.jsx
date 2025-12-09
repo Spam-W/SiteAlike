@@ -1,10 +1,15 @@
+import Router from "./routing/Router";
+import IndexPage from "@/pages/IndexPage";
+import SitePage from "@/pages/SitePage";
+import NotFoundPage from "@/pages/NotFoundPage";
+import Auth from "@/pages/Auth";
 const App = () => {
-  return (
-    <div>
-      <h1>Welcome to SiteAlike Frontend!</h1>
-      <p>This is the main application component.</p>
-    </div>
-  );
+  const routes = {
+    "/": IndexPage,
+    "/sites/:id": SitePage,
+    "*": NotFoundPage,
+  };
+  return <Router routes={routes} />;
 };
 
 export default App;
