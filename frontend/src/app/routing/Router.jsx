@@ -1,11 +1,12 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import HomePage from '@/pages/HomePage';
-import ListPage from '@/pages/ListPage';
-import SitePage from '@/pages/SitePage';
-import Login from '@/pages/auth/Login';
-import Register from '@/pages/auth/Register';
-import NotFound from '@/pages/NotFound';
-import AuthLayout from '@/layouts/AuthLayout';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import HomePage from "@/pages/HomePage";
+import ListPage from "@/pages/ListPage";
+import SitePage from "@/pages/SitePage";
+import AccountPage from "@/pages/AccountPage";
+import LoginPage from "@/pages/auth/LoginPage";
+import RegisterPage from "@/pages/auth/RegisterPage";
+import NotFoundPage from "@/pages/NotFoundPage";
+import AuthLayout from "@/layouts/AuthLayout";
 
 const Router = () => {
   return (
@@ -13,12 +14,14 @@ const Router = () => {
       <Routes>
         <Route index element={<HomePage />} />
         <Route path="list" element={<ListPage />} />
-        <Route path="list/:id" element={<SitePage />} />
+        <Route path="list:tag" element={<ListPage />} />
+        <Route path="site/:id" element={<SitePage />} />
+        <Route path="account" element={<AccountPage />} />
         <Route element={<AuthLayout />}>
-          <Route path="login" element={<Login />} />
-          <Route path="register" element={<Register />} />
+          <Route path="login" element={<LoginPage />} />
+          <Route path="register" element={<RegisterPage />} />
         </Route>
-        <Route path="*" element={<NotFound />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   );
