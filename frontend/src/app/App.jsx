@@ -1,15 +1,15 @@
 import Router from "./routing/Router";
-import IndexPage from "@/pages/IndexPage";
+/*import IndexPage from "@/pages/IndexPage";
 import SitePage from "@/pages/SitePage";
 import NotFoundPage from "@/pages/NotFoundPage";
-import Auth from "@/pages/Auth";
+import Auth from "@/pages/Auth";*/
 const App = () => {
-  const routes = {
+  /*const routes = {
     "/": IndexPage,
     "/sites/:id": SitePage,
     "*": NotFoundPage,
-  };
-  return <Router routes={routes} />;
+  };*/
+  return <Router />;
 };
 
 export default App;

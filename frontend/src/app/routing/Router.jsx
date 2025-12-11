@@ -1,12 +1,12 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router";
 import HomePage from "@/pages/HomePage";
 import ListPage from "@/pages/ListPage";
 import SitePage from "@/pages/SitePage";
 import AccountPage from "@/pages/AccountPage";
-import LoginPage from "@/pages/auth/LoginPage";
-import RegisterPage from "@/pages/auth/RegisterPage";
+import LoginPage from "@/pages/LoginPage";
+import RegisterPage from "@/pages/RegisterPage";
 import NotFoundPage from "@/pages/NotFoundPage";
-import AuthLayout from "@/layouts/AuthLayout";
+//import AuthLayout from "@/layouts/AuthLayout";
 
 const Router = () => {
   return (

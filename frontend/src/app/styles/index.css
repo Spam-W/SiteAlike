@@ -1,6 +1,7 @@
 @import "tailwindcss";
-@tailwind base;
-@tailwind components;
+@import "tailwindcss/preflight"
+/*@tailwind base;
+@tailwind utilities;*/
 @tailwind utilities;
 
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
@@ -121,10 +122,15 @@ All colors MUST be HSL.
 
 @layer base {
   * {
-    @apply border-border;
+    /*@apply border-border;*/
+    border-color: hsl(var(--border));
   }
 
-  body {
+  /*body {
     @apply bg-background text-foreground;
+  }*/
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
   }
 }
