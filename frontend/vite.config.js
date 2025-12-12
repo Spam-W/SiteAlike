@@ -1,8 +1,11 @@
 import { defineConfig } from "vite";
 import path from "path";
+import { fileURLToPath } from "node:url";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 //import { reactRouter } from "@react-router/dev";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // https://vite.dev/config/
 export default defineConfig({
