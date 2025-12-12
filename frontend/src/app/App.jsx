@@ -1,5 +1,6 @@
 //import Router from "./routing/Router";
 import { useState, useMemo } from "react";
+import SiteCardList from "@/components/SiteCardList";
 /*import IndexPage from "@/pages/IndexPage";
 
 
@@ -198,7 +199,7 @@ export default function App() {
   }
 
   return (
-    <div style={styles.app}>
+    <div className="app" /* style={styles.app} */>
       <h1>Website Tag Search (Danbooru-style)</h1>
       <p>
         Enter tags like: <code>ai -nsfw ~blog</code>
@@ -207,7 +208,8 @@ export default function App() {
       {/* Search Input */}
       <div style={styles.searchBox}>
         <input
-          style={styles.input}
+          className="input"
+          /* style={styles.input} */
           placeholder="Enter tags. Examples: ai -nsfw ~blog"
           value={input}
           onChange={(e) => setInput(e.target.value)}
@@ -219,17 +221,18 @@ export default function App() {
           }}
         />
 
-        <button style={styles.btn} onClick={onAddToken}>
+        <button className="btn" /* style={styles.btn} */ onClick={onAddToken}>
           Add
         </button>
 
         {/* Autocomplete */}
         {input && suggestions.length > 0 && (
-          <div style={styles.suggestBox}>
+          <div className="suggestBox" /* style={styles.suggestBox} */>
             {suggestions.map((tag) => (
               <div
+                className="suggestItem"
                 key={tag}
-                style={styles.suggestItem}
+                /* style={styles.suggestItem} */
                 onMouseDown={() => onSuggestionClick(tag)}
               >
                 {tag}
@@ -247,7 +250,8 @@ export default function App() {
 
       {/* Results */}
       <h2>Results ({results.length})</h2>
-      <div style={styles.grid}>
+      <SiteCardList sites={results} query={query} setQuery={setQuery} />
+      {/* <div style={styles.grid}>
         {results.map((site) => (
           <div key={site.id} style={styles.card}>
             <img src={site.screenshot} alt="" style={styles.img} />
@@ -269,7 +273,7 @@ export default function App() {
             </div>
           </div>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 }
