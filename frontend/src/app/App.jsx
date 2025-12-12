@@ -1,6 +1,7 @@
 //import Router from "./routing/Router";
 import { useState, useMemo } from "react";
 import SiteCardList from "@/components/SiteCardList";
+import SearchSection from "@/components/SearchSection";
 /*import IndexPage from "@/pages/IndexPage";
 
 
@@ -200,47 +201,13 @@ export default function App() {
 
   return (
     <div className="app" /* style={styles.app} */>
-      <h1>Website Tag Search (Danbooru-style)</h1>
+      <h1>Website Tag Search</h1>
       <p>
-        Enter tags like: <code>ai -nsfw ~blog</code>
+        Enter tags like: <code>ai education</code>
       </p>
 
       {/* Search Input */}
-      <div style={styles.searchBox}>
-        <input
-          className="input"
-          /* style={styles.input} */
-          placeholder="Enter tags. Examples: ai -nsfw ~blog"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          onKeyDown={(e) => {
-            if (e.key === "Enter") {
-              e.preventDefault();
-              onAddToken();
-            }
-          }}
-        />
-
-        <button className="btn" /* style={styles.btn} */ onClick={onAddToken}>
-          Add
-        </button>
-
-        {/* Autocomplete */}
-        {input && suggestions.length > 0 && (
-          <div className="suggestBox" /* style={styles.suggestBox} */>
-            {suggestions.map((tag) => (
-              <div
-                className="suggestItem"
-                key={tag}
-                /* style={styles.suggestItem} */
-                onMouseDown={() => onSuggestionClick(tag)}
-              >
-                {tag}
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
+      <SearchSection query={query} setQuery={setQuery} />
 
       <div style={{ marginTop: 10 }}>
         <strong>Query:</strong> {query || "(none)"}
@@ -251,35 +218,13 @@ export default function App() {
       {/* Results */}
       <h2>Results ({results.length})</h2>
       <SiteCardList sites={results} query={query} setQuery={setQuery} />
-      {/* <div style={styles.grid}>
-        {results.map((site) => (
-          <div key={site.id} style={styles.card}>
-            <img src={site.screenshot} alt="" style={styles.img} />
-            <h3>{site.name}</h3>
-            <a href={site.url} target="_blank" rel="noreferrer">
-              {site.url}
-            </a>
-
-            <div style={styles.tagRow}>
-              {site.tags.map((t) => (
-                <button
-                  key={t}
-                  onClick={() => addIncludeTag(t)}
-                  style={styles.tag}
-                >
-                  {t}
-                </button>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div> */}
+      
     </div>
   );
 }
 
 /* Basic styles */
-const styles = {
+/* const styles = {
   app: {
     maxWidth: 900,
     margin: "0 auto",
@@ -352,7 +297,7 @@ const styles = {
     padding: "4px 8px",
     cursor: "pointer",
   },
-};
+}; */
 
 /*
 const TAGS = [
